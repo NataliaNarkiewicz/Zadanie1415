@@ -9,7 +9,7 @@
             line-height: 1.6;
             text-align: center;
         }
-        .date {
+        .date { 
             font-size: 16px;
         }
         .footer {
