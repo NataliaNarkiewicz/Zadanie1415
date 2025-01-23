@@ -15,14 +15,72 @@
         .footer {
             font-size: 16px;
         }
+        .guestbook {
+            margin: 20px auto;
+            width: 50%;
+            text-align: left;
+        }
+        .guestbook h3 {
+            text-align: center;
+        }
+        .statystyki {
+            margin: 20px auto;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 80px;
+        }
+        input, button {
+            margin: 5px 0;
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
 
-    <div class="footer">Narkiewicz<br>Gdańsk, 16-01-2025</span></div>
-<!-- www.DarmowyLicznik.pl -->
-<div class="image-rotator"><div class="rotator-slide" id="rotator-slide-1"><a href="https://www.darmowylicznik.pl/" title="Przejdź na stronę licznika" target="_blank"><img src="https://www.darmowylicznik.pl/licznik.php?id=148116" alt="Darmowy licznik odwiedzin" style="border:0px;" /></a></div></div>
-<!-- END www.DarmowyLicznik.pl -->
-   
+    <!-- Stopka -->
+    <div class="footer">Narkiewicz<br>Gdańsk, 16-01-2025</div>
+
+    <!-- Statystyka -->
+    <div class="statystyki">
+        <h3>Statystyka odwiedzin</h3>
+        <img src="https://www.darmowylicznik.pl/licznik.php?id=148116" alt="Darmowy licznik odwiedzin" style="border:0px;">
+        <p>Ten licznik odwiedzin jest dostarczany przez <a href="https://www.darmowylicznik.pl/" target="_blank">Darmowy Licznik</a>.</p>
+    </div>
+
+    <!-- Księga Gości -->
+    <div class="guestbook">
+        <h3>Księga gości</h3>
+        <form id="guestbookForm">
+            <label for="name">Imię:</label><br>
+            <input type="text" id="name" placeholder="Wpisz swoje imię" required><br>
+            <label for="message">Wiadomość:</label><br>
+            <textarea id="message" placeholder="Wpisz swoją wiadomość..." required></textarea><br>
+            <button type="submit">Dodaj wpis</button>
+        </form>
+        <div id="guestbookEntries">
+            <h4>Wpisy:</h4>
+            <div id="entries"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("guestbookForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Zapobiega przeładowaniu strony
+            const name = document.getElementById("name").value;
+            const message = document.getElementById("message").value;
+            const entriesDiv = document.getElementById("entries");
+            const entry = document.createElement("p");
+
+            // Dodajemy nowy wpis do księgi gości
+            entry.textContent = name + ": " + message;
+            entriesDiv.appendChild(entry);
+
+            // Czyścimy formularz po dodaniu wpisu
+            document.getElementById("name").value = "";
+            document.getElementById("message").value = "";
+        });
+    </script>
 </body>
 </html>
