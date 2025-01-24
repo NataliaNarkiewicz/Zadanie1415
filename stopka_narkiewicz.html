@@ -49,38 +49,7 @@
         <p>Ten licznik odwiedzin jest dostarczany przez <a href="https://www.darmowylicznik.pl/" target="_blank">Darmowy Licznik</a>.</p>
     </div>
 
-    <!-- Księga Gości -->
-    <div class="guestbook">
-        <h3>Księga gości</h3>
-        <form id="guestbookForm">
-            <label for="name">Imię:</label><br>
-            <input type="text" id="name" placeholder="Natalia" required><br>
-            <label for="message">Wiadomość:</label><br>
-            <textarea id="message" placeholder="Witam" required></textarea><br>
-            <button type="submit">Dodaj wpis</button>
-        </form>
-        <div id="guestbookEntries">
-            <h4>Wpisy:</h4>
-            <div id="entries"></div>
-        </div>
-    </div>
-
-    <script>
-        document.getElementById("guestbookForm").addEventListener("submit", function (e) {
-            e.preventDefault(); // Zapobiega przeładowaniu strony
-            const name = document.getElementById("name").value;
-            const message = document.getElementById("message").value;
-            const entriesDiv = document.getElementById("entries");
-            const entry = document.createElement("p");
-
-            // Dodajemy nowy wpis do księgi gości
-            entry.textContent = name + ": " + message;
-            entriesDiv.appendChild(entry);
-
-            // Czyścimy formularz po dodaniu wpisu
-            document.getElementById("name").value = "";
-            document.getElementById("message").value = "";
-        });
+   
     </script>
 </body>
 </html>
